@@ -2,116 +2,178 @@
 import React from "react";
 import Image from "next/image";
 import { CardSpotlight } from "@/components/ui/card-spotlight";
+import { motion } from "motion/react";
 
 const AboutSection = () => {
   return (
-    <section className="py-24 bg-gray-950 text-white">
-      <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold mb-12 text-center">About Me</h2>
+    <section className="relative py-20 bg-black text-white overflow-hidden">
+      {/* Background elements */}
+      <div className="absolute inset-0 opacity-20">
+        <div className="absolute top-10 left-10 w-64 h-64 bg-blue-500 rounded-full filter blur-[100px]" />
+        <div className="absolute bottom-10 right-10 w-64 h-64 bg-purple-500 rounded-full filter blur-[100px]" />
+      </div>
+      
+      <div className="container max-w-7xl mx-auto px-6 md:px-8 relative z-10">
+        <motion.h1 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-4xl md:text-[6rem] font-bold mb-16 leading-none bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-500 text-center font-inter"
+        >
+          About Me
+        </motion.h1>
         
-        <div className="flex flex-col md:flex-row items-center gap-12">
-          <div className="w-full md:w-1/2 flex justify-center">
-            <CardSpotlight className="h-auto w-full max-w-md">
-              <div className="relative z-20 flex flex-col items-center">
-                <div className="relative w-64 h-64 rounded-full overflow-hidden mb-6">
-                  <Image 
-                    src="/profile.jpg" 
-                    alt="Ag Syafiq" 
-                    width={256} 
-                    height={256}
-                    className="object-cover"
-                    priority
-                  />
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+          {/* Profile Card */}
+          <motion.div 
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="md:col-span-5"
+          >
+            <CardSpotlight className="h-auto w-full max-w-md mx-auto backdrop-blur-sm bg-gray-900/60 border border-gray-800">
+              <div className="relative z-20 flex flex-col items-center p-8">
+                <div className="relative w-56 h-56 mb-8">
+                  <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 animate-pulse" style={{ padding: '4px' }}>
+                    <div className="absolute inset-0 rounded-full overflow-hidden">
+                      <Image 
+                        src="/profile.jpg" 
+                        alt="Ag Syafiq" 
+                        width={256} 
+                        height={256}
+                        className="object-cover"
+                        priority
+                      />
+                    </div>
+                  </div>
                 </div>
                 
-                <h3 className="text-2xl font-bold text-white mb-2">Ag Syafiq bin Ag Ahmad</h3>
-                <p className="text-blue-400 mb-4">Software Engineer</p>
+                <h3 className="text-3xl font-bold text-white mb-2">Ag Syafiq bin Ag Ahmad</h3>
+                <div className="flex items-center gap-2 mb-6">
+                  <span className="h-2 w-2 bg-green-500 rounded-full animate-pulse"></span>
+                  <p className="text-blue-400 text-lg">Software Engineer</p>
+                </div>
                 
-                <div className="flex gap-4 mb-4">
-                  <SocialLink href="https://github.com/agsyafiq55" icon={<GitHubIcon />} />
-                  <SocialLink href="https://www.linkedin.com/in/ag-syafiq-bin-ag-ahmad-46966a222/" icon={<LinkedInIcon />} />
-                  <SocialLink href="https://twitter.com" icon={<TwitterIcon />} />
+                <div className="flex gap-4 mb-6">
+                  <SocialLink href="https://github.com/agsyafiq55" icon={<GitHubIcon />} label="GitHub" />
+                  <SocialLink href="https://www.linkedin.com/in/ag-syafiq-bin-ag-ahmad-46966a222/" icon={<LinkedInIcon />} label="LinkedIn" />
+                </div>
+                
+                <div className="w-full p-4 bg-gray-800/50 rounded-lg backdrop-blur-sm">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-sm text-gray-300">Available for hire</span>
+                    <span className="text-sm text-green-400">Yes I am!</span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm text-gray-300">Location</span>
+                    <span className="text-sm text-white">Sabah, Malaysia</span>
+                  </div>
                 </div>
               </div>
             </CardSpotlight>
-          </div>
+          </motion.div>
           
-          <div className="w-full md:w-1/2">
-            <CardSpotlight className="h-auto w-full">
-              <div className="relative z-20">
-                <h3 className="text-xl font-bold text-white mb-4">Professional Profile</h3>
+          {/* Professional Info */}
+          <motion.div 
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="md:col-span-7"
+          >
+            <CardSpotlight className="h-auto w-full backdrop-blur-sm bg-gray-900/60 border border-gray-800">
+              <div className="relative z-20 p-8">
+                <div className="inline-block mb-6 px-4 py-1 rounded-full bg-blue-500/20 border border-blue-500/30">
+                  <h3 className="text-blue-400 font-medium">Professional Profile</h3>
+                </div>
                 
-                <div className="text-neutral-200 space-y-4">
-                  <p>
+                <div className="text-gray-200 space-y-6 text-lg">
+                  <p className="leading-relaxed">
                     Experienced software engineer with a passion for creating innovative web applications
                     and immersive AR/VR experiences. I specialize in full-stack development using
                     modern technologies like React, Next.js, and Laravel.
                   </p>
                   
-                  <h4 className="text-lg font-semibold text-white mt-6 mb-2">Key Skills</h4>
-                  <ul className="grid grid-cols-2 gap-2">
-                    <Skill title="JavaScript/TypeScript" />
-                    <Skill title="React & Next.js" />
-                    <Skill title="Laravel & PHP" />
-                    <Skill title="Web AR/VR" />
-                    <Skill title="Tailwind CSS" />
-                    <Skill title="UI/UX Design" />
-                  </ul>
+                  <div className="pt-4">
+                    <h4 className="text-xl font-semibold text-white mb-4 flex items-center">
+                      <span className="inline-block w-6 h-6 mr-2 rounded bg-blue-500 items-center justify-center text-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-4 h-4">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                      </span>
+                      Key Skills
+                    </h4>
+                    <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                      {skills.map((skill, index) => (
+                        <SkillBadge key={index} title={skill} index={index} />
+                      ))}
+                    </div>
+                  </div>
                   
-                  <h4 className="text-lg font-semibold text-white mt-6 mb-2">Education</h4>
-                  <p>
-                  Bachelor Of Computer Science with Honours (Software Engineering)<br />
-                    University Malaysia Sabah, 2021-2025
-                  </p>
+                  <div className="pt-4">
+                    <h4 className="text-xl font-semibold text-white mb-4 flex items-center">
+                      <span className="inline-block w-6 h-6 mr-2 rounded bg-purple-500 items-center justify-center text-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-4 h-4">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                        </svg>
+                      </span>
+                      Education
+                    </h4>
+                    <div className="bg-gray-800/50 rounded-lg p-4 backdrop-blur-sm">
+                      <h5 className="font-semibold text-white">Bachelor Of Computer Science with Honours</h5>
+                      <p className="text-blue-400">Software Engineering</p>
+                      <div className="flex items-center justify-between mt-2">
+                        <span className="text-gray-300">University Malaysia Sabah</span>
+                        <span className="text-gray-400">2021-2025</span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </CardSpotlight>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
   );
 };
 
-const Skill = ({ title }: { title: string }) => {
+const skills = [
+  "JavaScript/TypeScript",
+  "React & Next.js",
+  "Laravel & PHP",
+  "Web AR/VR",
+  "Tailwind CSS",
+  "UI/UX Design",
+];
+
+const SkillBadge = ({ title, index }: { title: string; index: number }) => {
   return (
-    <div className="flex gap-2 items-center">
-      <CheckIcon />
-      <p className="text-white">{title}</p>
-    </div>
+    <motion.div 
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4, delay: 0.1 * index }}
+      className="bg-gradient-to-br from-blue-500/20 to-purple-500/20 backdrop-blur-sm border border-gray-700 rounded-lg p-3 flex items-center gap-2 hover:from-blue-500/30 hover:to-purple-500/30 transition-all duration-300"
+    >
+      <div className="w-2 h-2 rounded-full bg-blue-500"></div>
+      <p className="text-white text-sm">{title}</p>
+    </motion.div>
   );
 };
 
-const SocialLink = ({ href, icon }: { href: string; icon: React.ReactNode }) => {
+const SocialLink = ({ href, icon, label }: { href: string; icon: React.ReactNode; label: string }) => {
   return (
     <a 
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-600 transition-colors duration-300"
+      className="group relative w-12 h-12 rounded-full bg-gray-800/80 flex items-center justify-center hover:bg-blue-600 transition-all duration-300"
+      aria-label={label}
     >
+      <span className="absolute -bottom-8 scale-0 group-hover:scale-100 transition-transform bg-gray-900 text-xs text-white py-1 px-2 rounded opacity-0 group-hover:opacity-100">
+        {label}
+      </span>
       {icon}
     </a>
-  );
-};
-
-const CheckIcon = () => {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      className="h-4 w-4 text-blue-500 mt-1 shrink-0"
-    >
-      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-      <path
-        d="M12 2c-.218 0 -.432 .002 -.642 .005l-.616 .017l-.299 .013l-.579 .034l-.553 .046c-4.785 .464 -6.732 2.411 -7.196 7.196l-.046 .553l-.034 .579c-.005 .098 -.01 .198 -.013 .299l-.017 .616l-.004 .318l-.001 .324c0 .218 .002 .432 .005 .642l.017 .616l.013 .299l.034 .579l.046 .553c.464 4.785 2.411 6.732 7.196 7.196l.553 .046l.579 .034c.098 .005 .198 .01 .299 .013l.616 .017l.642 .005l.642 -.005l.616 -.017l.299 -.013l.579 -.034l.553 -.046c4.785 -.464 6.732 -2.411 7.196 -7.196l.046 -.553l.034 -.579c.005 -.098 .01 -.198 .013 -.299l.017 -.616l.005 -.642l-.005 -.642l-.017 -.616l-.013 -.299l-.034 -.579l-.046 -.553c-.464 -4.785 -2.411 -6.732 -7.196 -7.196l-.553 -.046l-.579 -.034a28.058 28.058 0 0 0 -.299 -.013l-.616 -.017l-.318 -.004l-.324 -.001zm2.293 7.293a1 1 0 0 1 1.497 1.32l-.083 .094l-4 4a1 1 0 0 1 -1.32 .083l-.094 -.083l-2 -2a1 1 0 0 1 1.32 -1.497l.094 .083l1.293 1.292l3.293 -3.292z"
-        fill="currentColor"
-        strokeWidth="0"
-      />
-    </svg>
   );
 };
 

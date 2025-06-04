@@ -22,7 +22,7 @@ export default function ProjectsSection() {
   return (
     <section className="py-24 bg-gray-100 dark:bg-gray-900">
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold mb-4 text-center">My Projects</h2>
+        <h2 className="text-4xl font-bold mb-4 text-center font-inter">My Projects</h2>
         <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto text-center mb-12">
           A collection of my recent work, ranging from web applications to AR/VR experiences.
         </p>

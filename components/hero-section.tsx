@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import ThreeDMarqueeDemo from "@/components/3d-marquee-demo";
+import ColourfulText from "@/components/ui/colourful-text";
 
 export default function HeroSection() {
   return (
@@ -15,11 +16,12 @@ export default function HeroSection() {
         <div className="pointer-events-none absolute inset-0 select-none bg-black/30" />
         
         <div className="relative z-10 mx-auto w-full max-w-7xl p-4 pt-20 md:pt-0">
-          <h1 className="bg-opacity-50 bg-gradient-to-b from-neutral-50 to-neutral-400 bg-clip-text text-center text-4xl font-bold text-transparent md:text-7xl">
-            Ag Syafiq bin Ag Ahmad <br /> Software Engineer
+          <h1 className="pb-2 text-center font-inter tracking-tighter">
+            <span className="text-4xl md:text-6xl font-black block text-white">Hi, my name is</span>
+            <span className="text-5xl md:text-8xl font-black"><ColourfulText text="Awang" /></span>
           </h1>
           <p className="mx-auto mt-4 max-w-lg text-center text-base font-normal text-neutral-300">
-            This is my portfolio website built with Next.js, Tailwind CSS, and Aceternity UI. Browse through my projects which ranges from Laravel Projects to Web Augmented Reality and Virtual Reality.
+            and I am a Software Engineer! This is my portfolio website built with Next.js, Tailwind CSS, and Aceternity UI. Browse through my projects which ranges from Laravel Projects to Web Augmented Reality and Virtual Reality.
           </p>
         </div>
       </div>
