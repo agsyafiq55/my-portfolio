@@ -1,9 +1,12 @@
 import Image from "next/image";
+import ThreeDMarqueeDemo from "@/components/3d-marquee-demo";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
+    <div className="flex flex-col min-h-screen font-[family-name:var(--font-geist-sans)]">
+      <ThreeDMarqueeDemo />
+      
+      <main className="flex flex-col gap-[32px] items-center sm:items-start p-8 sm:p-20">
         <Image
           className="dark:invert"
           src="/next.svg"
@@ -51,7 +54,7 @@ export default function Home() {
           </a>
         </div>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
+      <footer className="mt-auto flex gap-[24px] flex-wrap items-center justify-center p-8 pb-20">
         <a
           className="flex items-center gap-2 hover:underline hover:underline-offset-4"
           href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
