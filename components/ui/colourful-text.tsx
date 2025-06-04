@@ -4,15 +4,7 @@ import { motion } from "motion/react";
 
 export default function ColourfulText({ text }: { text: string }) {
   const colors = [
-    "rgb(255, 255, 255)", // White
-    "rgb(220, 230, 255)", // Light blue-white
-    "rgb(173, 216, 230)", // Light blue
-    "rgb(135, 206, 235)", // Sky blue
-    "rgb(100, 149, 237)", // Cornflower blue
-    "rgb(65, 105, 225)",  // Royal blue
-    "rgb(30, 144, 255)",  // Dodger blue
-    "rgb(0, 191, 255)",   // Deep sky blue
-    "rgb(70, 130, 180)",  // Steel blue
+    "rgb(124, 140, 255)",  // blue-400 to purple-400
   ];
 
   const [currentColors, setCurrentColors] = React.useState(colors);
