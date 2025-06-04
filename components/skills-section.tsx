@@ -123,7 +123,4 @@ const skills: SkillCardProps[] = [
     icon: <IconBrandThreejs />,
     level: 5,
   },
-];
-
-// Import the Figma icon separately to avoid TypeScript errors
-import { IconBrandFigma } from "@tabler/icons-react"; 
+]; 

@@ -1,11 +1,11 @@
 "use client";
-import React from "react";
+import React, { useMemo } from "react";
 import { motion } from "motion/react";
 
 export default function ColourfulText({ text }: { text: string }) {
-  const colors = [
+  const colors = useMemo(() => [
     "rgb(124, 140, 255)",  // blue-400 to purple-400
-  ];
+  ], []);
 
   const [currentColors, setCurrentColors] = React.useState(colors);
   const [count, setCount] = React.useState(0);
@@ -18,7 +18,7 @@ export default function ColourfulText({ text }: { text: string }) {
     }, 5000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [colors]);
 
   return text.split("").map((char, index) => (
     <motion.span

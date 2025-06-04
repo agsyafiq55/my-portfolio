@@ -1,7 +1,5 @@
 "use client";
 import React from "react";
-import Image from "next/image";
-import { cn } from "@/lib/utils";
 import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
 import {
     IconBrandCss3,
@@ -12,7 +10,6 @@ import {
   IconBrandNextjs,
   IconBrandPhp,
   IconBrandReact,
-  IconBrandTailwind,
   IconBrandThreejs,
   IconLetterASmall,
   IconWorldWww,
@@ -44,7 +41,7 @@ export default function ProjectsSection() {
   );
 }
 
-const ProjectImage = ({ src, alt }: { src: string; alt: string }) => (
+const ProjectImage = ({ alt }: { alt: string }) => (
   <div className="relative w-full h-32 overflow-hidden rounded-lg">
     <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-purple-600/20 flex items-center justify-center">
       <span className="text-sm text-gray-500 dark:text-gray-400">{alt}</span>
@@ -99,7 +96,7 @@ const projects = [
         <ProjectLinks github="https://github.com/agsyafiq55/ums-tourism"/>
       </div>
     ),
-    header: <ProjectImage src="/projects/ecommerce.jpg" alt="E-Commerce Platform" />,
+    header: <ProjectImage alt="E-Commerce Platform" />,
     icon: <IconBrandLaravel className="h-4 w-4 text-red-500" />,
     className: "md:col-span-2"
   },
@@ -107,7 +104,7 @@ const projects = [
     title: "UMS Virtual Tour",
     description: (
       <div className="space-y-2">
-        <p>"UMS Virtual Tour" is part of my Final Year Project; "UMS Tourism Web System"</p>
+        <p>&quot;UMS Virtual Tour&quot; is part of my Final Year Project; &quot;UMS Tourism Web System&quot;</p>
         <div className="flex flex-wrap gap-1 mt-2">
           <TechBadge icon={<IconBrandHtml5 className="h-3 w-3" />} label="HTML" />
           <TechBadge icon={<IconBrandCss3 className="h-3 w-3" />} label="CSS" />
@@ -118,7 +115,7 @@ const projects = [
         <ProjectLinks github="https://github.com/agsyafiq55/ums-virtual-tour" demo="https://umsvirtualtour.netlify.app/" />
       </div>
     ),
-    header: <ProjectImage src="/projects/portfolio.jpg" alt="Portfolio Website" />,
+    header: <ProjectImage alt="Portfolio Website" />,
     icon: <IconBrandPhp className="h-4 w-4 text-purple-500" />,
   },
   {
@@ -133,7 +130,7 @@ const projects = [
         <ProjectLinks github="https://github.com/agsyafiq55/ar-viewer" demo="https://ar-viewer.example.com" />
       </div>
     ),
-    header: <ProjectImage src="/projects/ar-viewer.jpg" alt="AR Product Viewer" />,
+    header: <ProjectImage alt="AR Product Viewer" />,
     icon: <IconBrandThreejs className="h-4 w-4 text-blue-500" />,
   },
   {
@@ -148,7 +145,7 @@ const projects = [
         <ProjectLinks github="https://github.com/agsyafiq55/task-system" />
       </div>
     ),
-    header: <ProjectImage src="/projects/task-manager.jpg" alt="Task Management System" />,
+    header: <ProjectImage alt="Task Management System" />,
     icon: <IconBrandLaravel className="h-4 w-4 text-red-500" />,
   },
   {
@@ -163,7 +160,7 @@ const projects = [
         <ProjectLinks github="https://github.com/agsyafiq55/edu-platform" demo="https://edu-platform.example.com" />
       </div>
     ),
-    header: <ProjectImage src="/projects/education.jpg" alt="Educational Platform" />,
+    header: <ProjectImage alt="Educational Platform" />,
     icon: <IconBrandPhp className="h-4 w-4 text-purple-500" />,
   },
   {
@@ -178,7 +175,7 @@ const projects = [
         <ProjectLinks github="https://github.com/agsyafiq55/vr-training" />
       </div>
     ),
-    header: <ProjectImage src="/projects/vr-training.jpg" alt="VR Training Simulation" />,
+    header: <ProjectImage alt="VR Training Simulation" />,
     icon: <IconBrandThreejs className="h-4 w-4 text-blue-500" />,
     className: "md:col-span-2"
   },
