@@ -1,10 +1,10 @@
 import Image from "next/image";
-import ThreeDMarqueeDemo from "@/components/3d-marquee-demo";
+import HeroSection from "@/components/hero-section";
 
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen font-[family-name:var(--font-geist-sans)]">
-      <ThreeDMarqueeDemo />
+      <HeroSection />
       
       <main className="flex flex-col gap-[32px] items-center sm:items-start p-8 sm:p-20">
         <Image
