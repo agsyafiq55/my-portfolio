@@ -1,12 +1,14 @@
 import Image from "next/image";
 import HeroSection from "@/components/hero-section";
 import AboutSection from "@/components/about-section";
+import ProjectsSection from "@/components/projects-section";
 
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen font-[family-name:var(--font-geist-sans)]">
       <HeroSection />
       <AboutSection />
+      <ProjectsSection />
       
       <main className="flex flex-col gap-[32px] items-center sm:items-start p-8 sm:p-20">
         <Image
