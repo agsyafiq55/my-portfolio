@@ -6,7 +6,6 @@ import { motion } from "motion/react";
 import { 
   IconMapPin, 
   IconBriefcase, 
-  IconSchool, 
   IconHandStop, 
   IconCertificate,
   IconBuilding
