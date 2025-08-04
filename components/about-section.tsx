@@ -164,7 +164,7 @@ const AboutSection = () => {
                   
                   <div className="text-gray-200 space-y-4 text-lg leading-relaxed">
                     <p>
-                      I'm a passionate software engineer with a deep love for creating innovative web applications 
+                      I&apos;m a passionate software engineer with a deep love for creating innovative web applications 
                       and immersive AR/VR experiences. With expertise in full-stack development, I specialize in 
                       building modern, scalable solutions using cutting-edge technologies.
                     </p>

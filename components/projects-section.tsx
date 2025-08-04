@@ -7,9 +7,7 @@ import {
   IconBrandHtml5,
   IconBrandJavascript,
   IconBrandLaravel,
-  IconBrandNextjs,
   IconBrandPhp,
-  IconBrandReact,
   IconBrandThreejs,
   IconLetterASmall,
   IconWorldWww,
@@ -140,7 +138,7 @@ const projects = [
       <div className="space-y-3">
         <p className="text-sm text-gray-600 dark:text-gray-300">
           Developed a CMS-based website with professional UI design as the official website for 
-          Kota Kinabalu High School's Board of Governors.
+          Kota Kinabalu High School&apos;s Board of Governors.
         </p>
         <div className="flex flex-wrap gap-1">
           <TechBadge icon={<IconBrandLaravel className="h-3 w-3" />} label="Laravel 12" />
@@ -204,7 +202,7 @@ const projects = [
     description: (
       <div className="space-y-3">
         <p className="text-sm text-gray-600 dark:text-gray-300">
-          Part of the Final Year Project "UMS Tourism Web System" - an immersive virtual tour experience 
+          Part of the Final Year Project &quot;UMS Tourism Web System&quot; - an immersive virtual tour experience 
           using Web AR/VR technology for exploring university facilities.
         </p>
         <div className="flex flex-wrap gap-1">
