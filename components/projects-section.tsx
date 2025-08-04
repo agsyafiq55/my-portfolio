@@ -107,7 +107,7 @@ const AchievementBadge = ({ text }: { text: string }) => (
 
 const projects = [
   {
-    title: "UMS Tourism Web System",
+    title: "UMS Tourism Web System (Final Year Project)",
     description: (
       <div className="space-y-3">
         <p className="text-sm text-gray-600 dark:text-gray-300">
@@ -137,8 +137,7 @@ const projects = [
     description: (
       <div className="space-y-3">
         <p className="text-sm text-gray-600 dark:text-gray-300">
-          Developed a CMS-based website with professional UI design as the official website for 
-          Kota Kinabalu High School&apos;s Board of Governors.
+          CMS-based website with professional UI design as the official website for Kota Kinabalu High School&apos;s Board of Governors.
         </p>
         <div className="flex flex-wrap gap-1">
           <TechBadge icon={<IconBrandLaravel className="h-3 w-3" />} label="Laravel 12" />
@@ -159,7 +158,7 @@ const projects = [
     description: (
       <div className="space-y-3">
         <p className="text-sm text-gray-600 dark:text-gray-300">
-          A web-based system developed to manage bookings for school facilities, including the AI Center, 
+          A web-based system developed for Kota Kinabalu High School to manage bookings for school facilities, including the AI Center, 
           School Hall, and Badminton Court.
         </p>
         <div className="flex flex-wrap gap-1">

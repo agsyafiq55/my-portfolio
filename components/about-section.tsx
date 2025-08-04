@@ -96,12 +96,7 @@ const AboutSection = () => {
                       />
                     </div>
                   </div>
-                  {/* Floating status indicator */}
-                  <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-green-500 rounded-full border-4 border-gray-900 flex items-center justify-center">
-                    <div className="w-3 h-3 bg-white rounded-full animate-pulse" />
-                  </div>
                 </div>
-                
                 <h3 className="text-3xl font-bold text-white mb-3 text-center">Ag Syafiq bin Ag Ahmad</h3>
                 <div className="flex items-center gap-3 mb-8">
                   <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/20 border border-blue-500/30">
@@ -130,12 +125,6 @@ const AboutSection = () => {
                     value="Yes I am!" 
                     color="green"
                   />
-                  <InfoCard 
-                    icon={<IconSchool size={24} />}
-                    label="Education" 
-                    value="BSc Computer Science" 
-                    color="purple"
-                  />
                 </div>
               </div>
             </CardSpotlight>
@@ -162,15 +151,12 @@ const AboutSection = () => {
                     </div>
                   </div>
                   
-                  <div className="text-gray-200 space-y-4 text-lg leading-relaxed">
+                  <div className="text-gray-200 space-y-4 text-lg text-justify leading-relaxed">
                     <p>
-                      I&apos;m a passionate software engineer with a deep love for creating innovative web applications 
-                      and immersive AR/VR experiences. With expertise in full-stack development, I specialize in 
-                      building modern, scalable solutions using cutting-edge technologies.
+                    Final-Year Software Engineering student at Universiti Malaysia Sabah with solid experience in full-stack web development. I also love building Web AR/VR experiences with A-Frame, AR.js, and Three.js. On top of that, I&apos;m also interested in building AI chat bots using custom ML models with TensorFlow and integrated various LLM APIs such as DeepSeek API.
                     </p>
                     <p>
-                      My journey in software development has been driven by curiosity and a desire to solve 
-                      complex problems. I believe in writing clean, maintainable code and creating user experiences 
+                      I aspire to be a software engineer that creates innovative and impactful solutions for the people. I believe in writing clean, maintainable code and creating user experiences 
                       that not only function flawlessly but also delight users.
                     </p>
                   </div>
@@ -197,8 +183,10 @@ const AboutSection = () => {
                         <p className="text-blue-400 font-medium">Software Engineering</p>
                       </div>
                       <div className="text-right">
-                        <div className="px-3 py-1 bg-blue-500/20 rounded-full border border-blue-500/30">
-                          <span className="text-blue-400 text-sm font-medium">2021-2025</span>
+                        <div className="flex items-center">
+                          <span className="inline-block min-w-[72px] text-center px-3 py-1 bg-blue-600/80 text-white text-sm font-semibold rounded-full shadow-sm border border-blue-400/40">
+                            2021–2025
+                          </span>
                         </div>
                       </div>
                     </div>
