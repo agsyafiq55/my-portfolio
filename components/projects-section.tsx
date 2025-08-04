@@ -13,6 +13,8 @@ import {
   IconBrandThreejs,
   IconLetterASmall,
   IconWorldWww,
+  IconBrandMysql,
+  IconBrandTailwind,
 } from "@tabler/icons-react";
 
 export default function ProjectsSection() {
@@ -21,7 +23,7 @@ export default function ProjectsSection() {
       <div className="container mx-auto px-4">
         <h2 className="text-4xl font-bold mb-4 text-center font-inter">My Projects</h2>
         <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto text-center mb-12">
-          A collection of my recent work, ranging from web applications to AR/VR experiences.
+          A collection of my recent work, showcasing full-stack web applications and innovative solutions.
         </p>
         
         <BentoGrid className="max-w-6xl mx-auto">
@@ -32,7 +34,7 @@ export default function ProjectsSection() {
               description={project.description}
               header={project.header}
               icon={project.icon}
-              className={project.className || ""}
+
             />
           ))}
         </BentoGrid>
@@ -41,11 +43,27 @@ export default function ProjectsSection() {
   );
 }
 
-const ProjectImage = ({ alt }: { alt: string }) => (
-  <div className="relative w-full h-32 overflow-hidden rounded-lg">
-    <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-purple-600/20 flex items-center justify-center">
-      <span className="text-sm text-gray-500 dark:text-gray-400">{alt}</span>
-    </div>
+const ProjectImage = ({ alt, src, hoverSrc }: { alt: string; src?: string; hoverSrc?: string }) => (
+  <div className="relative w-full h-full overflow-hidden rounded-lg group">
+    {src && (
+      <img
+        src={src}
+        alt={alt}
+        className="w-full h-full object-contain bg-gray-100 dark:bg-gray-800 transition-opacity duration-500 group-hover:opacity-0"
+      />
+    )}
+    {hoverSrc && (
+      <img
+        src={hoverSrc}
+        alt={alt}
+        className="w-full h-full object-contain bg-gray-100 dark:bg-gray-800 absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+      />
+    )}
+    {!src && !hoverSrc && (
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-purple-600/20 flex items-center justify-center">
+        <span className="text-sm text-gray-500 dark:text-gray-400">{alt}</span>
+      </div>
+    )}
   </div>
 );
 
@@ -59,7 +77,7 @@ const ProjectLinks = ({ github, demo }: { github?: string; demo?: string }) => (
         className="text-xs flex items-center gap-1 text-gray-500 hover:text-black dark:text-gray-400 dark:hover:text-white transition-colors"
       >
         <IconBrandGithub className="h-3.5 w-3.5" />
-        GitHub
+        Source Code
       </a>
     )}
     {demo && (
@@ -70,7 +88,7 @@ const ProjectLinks = ({ github, demo }: { github?: string; demo?: string }) => (
         className="text-xs flex items-center gap-1 text-gray-500 hover:text-black dark:text-gray-400 dark:hover:text-white transition-colors"
       >
         <IconWorldWww className="h-3.5 w-3.5" />
-        Live Demo
+        Live Website
       </a>
     )}
   </div>
@@ -83,100 +101,126 @@ const TechBadge = ({ icon, label }: { icon: React.ReactNode; label: string }) =>
   </span>
 );
 
+const AchievementBadge = ({ text }: { text: string }) => (
+  <span className="inline-flex items-center px-2 py-1 rounded-full text-xs bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400 border border-green-200 dark:border-green-800">
+    {text}
+  </span>
+);
+
 const projects = [
   {
-    title: "UMS Tourism",
+    title: "UMS Tourism Web System",
     description: (
-      <div className="space-y-2">
-        <p>A tourism website for University Malaysia Sabah with Web AR/VR.</p>
-        <div className="flex flex-wrap gap-1 mt-2">
-          <TechBadge icon={<IconBrandPhp className="h-3 w-3" />} label="PHP" />
+      <div className="space-y-3">
+        <p className="text-sm text-gray-600 dark:text-gray-300">
+          A comprehensive tourism web system for Universiti Malaysia Sabah (UMS) that allows tourists to explore attractions, 
+          book tickets, create itineraries, and experience Web AR/VR for virtual mosque tours.
+        </p>
+        <div className="flex flex-wrap gap-1">
           <TechBadge icon={<IconBrandHtml5 className="h-3 w-3" />} label="HTML" />
+          <TechBadge icon={<IconBrandCss3 className="h-3 w-3" />} label="CSS" />
+          <TechBadge icon={<IconBrandJavascript className="h-3 w-3" />} label="JavaScript" />
+          <TechBadge icon={<IconBrandPhp className="h-3 w-3" />} label="PHP" />
+          <TechBadge icon={<IconBrandMysql className="h-3 w-3" />} label="MySQL" />
+          <TechBadge icon={<IconLetterASmall className="h-3 w-3" />} label="A-Frame" />
+        </div>
+        <div className="flex flex-wrap gap-1">
+          <AchievementBadge text="Grade A - FYP 1" />
+          <AchievementBadge text="Grade A - FYP 2" />
         </div>
         <ProjectLinks github="https://github.com/agsyafiq55/ums-tourism"/>
       </div>
     ),
-    header: <ProjectImage alt="E-Commerce Platform" />,
+    header: <ProjectImage alt="UMS Tourism System" src="/projects/images/ums-tourism.png" hoverSrc="/projects/images/ums-tourism.png" />,
+    icon: <IconBrandPhp className="h-4 w-4 text-purple-500" />
+  },
+  {
+    title: "KKHS Board of Governors Website",
+    description: (
+      <div className="space-y-3">
+        <p className="text-sm text-gray-600 dark:text-gray-300">
+          Developed a CMS-based website with professional UI design as the official website for 
+          Kota Kinabalu High School's Board of Governors.
+        </p>
+        <div className="flex flex-wrap gap-1">
+          <TechBadge icon={<IconBrandLaravel className="h-3 w-3" />} label="Laravel 12" />
+          <TechBadge icon={<IconBrandTailwind className="h-3 w-3" />} label="Tailwind CSS" />
+          <TechBadge icon={<IconBrandPhp className="h-3 w-3" />} label="Livewire 3" />
+        </div>
+        <div className="flex flex-wrap gap-1">
+          <AchievementBadge text="AI Chatbot Integration" />
+        </div>
+        <ProjectLinks demo="https://kkhsbog.com" />
+      </div>
+    ),
+    header: <ProjectImage alt="KKHS Board of Governors" src="/projects/images/kkhsbog1.png" hoverSrc="/projects/images/kkhsbog2.png" />,
     icon: <IconBrandLaravel className="h-4 w-4 text-red-500" />,
-    className: "md:col-span-2"
+  },
+  {
+    title: "KKHS Facility Booking System",
+    description: (
+      <div className="space-y-3">
+        <p className="text-sm text-gray-600 dark:text-gray-300">
+          A web-based system developed to manage bookings for school facilities, including the AI Center, 
+          School Hall, and Badminton Court.
+        </p>
+        <div className="flex flex-wrap gap-1">
+          <TechBadge icon={<IconBrandLaravel className="h-3 w-3" />} label="Laravel 12" />
+          <TechBadge icon={<IconBrandTailwind className="h-3 w-3" />} label="Tailwind CSS" />
+          <TechBadge icon={<IconBrandPhp className="h-3 w-3" />} label="Livewire 3" />
+        </div>
+        <div className="flex flex-wrap gap-1">
+        </div>
+      </div>
+    ),
+    header: <ProjectImage alt="KKHS Facility Booking" src="/projects/images/facility1.png" hoverSrc="/projects/images/facility2.png" />,
+    icon: <IconBrandLaravel className="h-4 w-4 text-red-500" />,
+  },
+  {
+    title: "KKHS Concert Ticketing System",
+    description: (
+      <div className="space-y-3">
+        <p className="text-sm text-gray-600 dark:text-gray-300">
+          A digital ticketing web-based system for Kota Kinabalu High School, designed to manage over 2,000 
+          concert attendees annually with automated email delivery and QR-based validation.
+        </p>
+        <div className="flex flex-wrap gap-1">
+          <TechBadge icon={<IconBrandLaravel className="h-3 w-3" />} label="Laravel 12" />
+          <TechBadge icon={<IconBrandTailwind className="h-3 w-3" />} label="Tailwind CSS" />
+          <TechBadge icon={<IconBrandPhp className="h-3 w-3" />} label="Livewire 3" />
+        </div>
+        <div className="flex flex-wrap gap-1">
+          <AchievementBadge text="Role-based System" />
+          <AchievementBadge text="2K+ Users" />
+        </div>
+        <ProjectLinks demo="https://portal.kkhsbog.com/" />
+      </div>
+    ),
+    header: <ProjectImage alt="KKHS Concert Ticketing" src="/projects/images/ticket1.png" hoverSrc="/projects/images/ticket2.png" />,
+    icon: <IconBrandLaravel className="h-4 w-4 text-red-500" />,
   },
   {
     title: "UMS Virtual Tour",
     description: (
-      <div className="space-y-2">
-        <p>&quot;UMS Virtual Tour&quot; is part of my Final Year Project; &quot;UMS Tourism Web System&quot;</p>
-        <div className="flex flex-wrap gap-1 mt-2">
+      <div className="space-y-3">
+        <p className="text-sm text-gray-600 dark:text-gray-300">
+          Part of the Final Year Project "UMS Tourism Web System" - an immersive virtual tour experience 
+          using Web AR/VR technology for exploring university facilities.
+        </p>
+        <div className="flex flex-wrap gap-1">
           <TechBadge icon={<IconBrandHtml5 className="h-3 w-3" />} label="HTML" />
           <TechBadge icon={<IconBrandCss3 className="h-3 w-3" />} label="CSS" />
-          <TechBadge icon={<IconBrandJavascript className="h-3 w-3" />} label="Javascript" />
+          <TechBadge icon={<IconBrandJavascript className="h-3 w-3" />} label="JavaScript" />
           <TechBadge icon={<IconBrandPhp className="h-3 w-3" />} label="PHP" />
           <TechBadge icon={<IconLetterASmall className="h-3 w-3" />} label="A-Frame" />
         </div>
-        <ProjectLinks github="https://github.com/agsyafiq55/ums-virtual-tour" demo="https://umsvirtualtour.netlify.app/" />
-      </div>
-    ),
-    header: <ProjectImage alt="Portfolio Website" />,
-    icon: <IconBrandPhp className="h-4 w-4 text-purple-500" />,
-  },
-  {
-    title: "AR Product Viewer",
-    description: (
-      <div className="space-y-2">
-        <p>Web-based augmented reality application for 3D product visualization.</p>
-        <div className="flex flex-wrap gap-1 mt-2">
-          <TechBadge icon={<IconBrandThreejs className="h-3 w-3" />} label="Three.js" />
-          <TechBadge icon={<IconBrandReact className="h-3 w-3" />} label="React" />
+        <div className="flex flex-wrap gap-1">
+          <AchievementBadge text="Web AR/VR" />
         </div>
-        <ProjectLinks github="https://github.com/agsyafiq55/ar-viewer" demo="https://ar-viewer.example.com" />
+        <ProjectLinks demo="https://umsvirtualtour.netlify.app/" />
       </div>
     ),
-    header: <ProjectImage alt="AR Product Viewer" />,
+    header: <ProjectImage alt="UMS Virtual Tour" src="/projects/images/webvr.png" hoverSrc="/projects/images/webar.png" />,
     icon: <IconBrandThreejs className="h-4 w-4 text-blue-500" />,
-  },
-  {
-    title: "Task Management System",
-    description: (
-      <div className="space-y-2">
-        <p>Collaborative task management system with real-time updates and team features.</p>
-        <div className="flex flex-wrap gap-1 mt-2">
-          <TechBadge icon={<IconBrandLaravel className="h-3 w-3" />} label="Laravel" />
-          <TechBadge icon={<IconBrandNextjs className="h-3 w-3" />} label="Next.js" />
-        </div>
-        <ProjectLinks github="https://github.com/agsyafiq55/task-system" />
-      </div>
-    ),
-    header: <ProjectImage alt="Task Management System" />,
-    icon: <IconBrandLaravel className="h-4 w-4 text-red-500" />,
-  },
-  {
-    title: "Educational Platform",
-    description: (
-      <div className="space-y-2">
-        <p>Online learning platform with course management, quizzes and progress tracking.</p>
-        <div className="flex flex-wrap gap-1 mt-2">
-          <TechBadge icon={<IconBrandPhp className="h-3 w-3" />} label="PHP" />
-          <TechBadge icon={<IconBrandReact className="h-3 w-3" />} label="React" />
-        </div>
-        <ProjectLinks github="https://github.com/agsyafiq55/edu-platform" demo="https://edu-platform.example.com" />
-      </div>
-    ),
-    header: <ProjectImage alt="Educational Platform" />,
-    icon: <IconBrandPhp className="h-4 w-4 text-purple-500" />,
-  },
-  {
-    title: "VR Training Simulation",
-    description: (
-      <div className="space-y-2">
-        <p>Virtual reality training simulation for industrial safety procedures.</p>
-        <div className="flex flex-wrap gap-1 mt-2">
-          <TechBadge icon={<IconBrandThreejs className="h-3 w-3" />} label="Three.js" />
-          <TechBadge icon={<IconBrandReact className="h-3 w-3" />} label="React" />
-        </div>
-        <ProjectLinks github="https://github.com/agsyafiq55/vr-training" />
-      </div>
-    ),
-    header: <ProjectImage alt="VR Training Simulation" />,
-    icon: <IconBrandThreejs className="h-4 w-4 text-blue-500" />,
-    className: "md:col-span-2"
   },
 ]; 

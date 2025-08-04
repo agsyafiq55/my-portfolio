@@ -12,6 +12,20 @@ import {
   IconBrandTailwind,
   IconBrandThreejs,
   IconLetterASmall,
+  IconBrandPython,
+  IconBrandCpp,
+  IconBrandCSharp,
+  IconBrandMysql,
+  IconBrandGithub,
+  IconBrandVscode,
+  IconBrandFigma,
+  IconBrandVercel,
+  IconBrandDocker,
+  IconCode,
+  IconBrandKotlin,
+  IconCodeDots,
+  IconDatabase,
+  IconTools,
 } from "@tabler/icons-react";
 
 export default function SkillsSection() {
@@ -27,14 +41,14 @@ export default function SkillsSection() {
               </span>
             </h2>
             <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-              I specialize in web development with a focus on interactive experiences and modern frameworks
+              A comprehensive overview of my technical skills across various domains
             </p>
           </>
         }
       >
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 p-8 h-full">
-          {skills.map((skill, index) => (
-            <SkillCard key={index} {...skill} />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-8 h-full">
+          {skillCategories.map((category, index) => (
+            <SkillCategory key={index} {...category} />
           ))}
         </div>
       </ContainerScroll>
@@ -42,85 +56,96 @@ export default function SkillsSection() {
   );
 }
 
-interface SkillCardProps {
-  name: string;
+interface SkillCategoryProps {
+  title: string;
+  skills: string[];
   icon: React.ReactNode;
-  level: number; // 1-5
+  color: string;
 }
 
-const SkillCard = ({ name, icon, level }: SkillCardProps) => {
+const SkillCategory = ({ title, skills, icon, color }: SkillCategoryProps) => {
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col items-center text-center">
-      <div className="text-4xl mb-4 text-blue-500">{icon}</div>
-      <h3 className="text-lg font-bold mb-2 text-gray-800 dark:text-white">{name}</h3>
-      <div className="flex space-x-1 mb-3">
-        {Array.from({ length: 5 }).map((_, i) => (
-          <div
-            key={i}
-            className={`w-2 h-2 rounded-full ${
-              i < level ? "bg-blue-500" : "bg-gray-300 dark:bg-gray-600"
-            }`}
-          />
+    <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
+      <div className="flex items-center gap-3 mb-4">
+        <div className={`text-2xl ${color}`}>
+          {icon}
+        </div>
+        <h3 className="text-xl font-bold text-gray-800 dark:text-white">{title}</h3>
+      </div>
+      <div className="flex flex-wrap gap-2">
+        {skills.map((skill, index) => (
+          <span
+            key={index}
+            className="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full text-sm font-medium hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
+          >
+            {skill}
+          </span>
         ))}
       </div>
     </div>
   );
 };
 
-const skills: SkillCardProps[] = [
+const skillCategories: SkillCategoryProps[] = [
   {
-    name: "HTML",
-    icon: <IconBrandHtml5 />,
-    level: 5,
+    title: "Programming Languages",
+    icon: <IconCodeDots />,
+    color: "text-blue-500",
+    skills: [
+      "HTML",
+      "CSS", 
+      "JavaScript",
+      "PHP",
+      "Python",
+      "Java",
+      "C++",
+      "C#",
+      "Kotlin"
+    ]
   },
   {
-    name: "CSS",
-    icon: <IconBrandCss3 />,
-    level: 4,
-  },
-  {
-    name: "JavaScript",
-    icon: <IconBrandJavascript />,
-    level: 4,
-  },
-  {
-    name: "React",
+    title: "Front-End Frameworks",
     icon: <IconBrandReact />,
-    level: 4,
+    color: "text-cyan-500",
+    skills: [
+      "React.js",
+      "Next.js",
+      "Livewire"
+    ]
   },
   {
-    name: "Next.js",
-    icon: <IconBrandNextjs />,
-    level: 3,
+    title: "Back-End Frameworks & Technologies",
+    icon: <IconDatabase />,
+    color: "text-red-500",
+    skills: [
+      "Laravel",
+      "Flask",
+      "TensorFlow",
+      "MySQL"
+    ]
   },
   {
-    name: "Tailwind CSS",
-    icon: <IconBrandTailwind />,
-    level: 4,
-  },
-  {
-    name: "PHP",
-    icon: <IconBrandPhp />,
-    level: 4,
-  },
-  {
-    name: "Laravel",
-    icon: <IconBrandLaravel />,
-    level: 3,
-  },
-  {
-    name: "Three.js",
+    title: "Web AR/VR Frameworks",
     icon: <IconBrandThreejs />,
-    level: 3,
+    color: "text-purple-500",
+    skills: [
+      "A-Frame",
+      "AR.js",
+      "Three.js"
+    ]
   },
   {
-    name: "A-Frame",
-    icon: <IconLetterASmall />,
-    level: 3,
-  },
-  {
-    name: "Web AR/VR",
-    icon: <IconBrandThreejs />,
-    level: 5,
-  },
+    title: "Tools & Platforms",
+    icon: <IconTools />,
+    color: "text-green-500",
+    skills: [
+      "GitHub",
+      "Visual Studio Code",
+      "Figma",
+      "Railway",
+      "Vercel",
+      "Cpanel",
+      "Docker"
+    ]
+  }
 ]; 

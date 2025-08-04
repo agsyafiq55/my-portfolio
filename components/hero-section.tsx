@@ -18,10 +18,10 @@ export default function HeroSection() {
         <div className="relative z-10 mx-auto w-full max-w-7xl p-4 pt-20 md:pt-0">
           <h1 className="pb-2 text-center font-inter tracking-tighter">
             <span className="text-3xl md:text-5xl font-black block text-white">Hi, my name is</span>
-            <span className="text-4xl md:text-7xl font-black"><ColourfulText text="Awang." /></span>
+            <span className="text-4xl md:text-7xl font-black"><ColourfulText text="Awang" /></span>
           </h1>
           <p className="mx-auto mt-4 max-w-lg text-center text-base font-normal text-neutral-300">
-            and I am a Software Engineer! This is my portfolio website built with Next.js, Tailwind CSS, and Aceternity UI. Browse through my projects which ranges from Laravel Projects to Web Augmented Reality and Virtual Reality.
+            I am a Software Engineer! This is my portfolio website built with Next.js, Tailwind CSS, and Aceternity UI. Browse through my projects which ranges from Web Applications to Web Augmented Reality and Virtual Reality.
           </p>
         </div>
       </div>
